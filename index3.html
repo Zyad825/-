@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>audio</title>
+    <style>
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: linear-gradient(45deg, #3498db, #9b59b6, #2ecc71);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
+    color: #fff;
+    font-weight: bold;
+    word-spacing: 3px;
+}
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+        .audio{
+            text-align: center;
+            width: 95%;
+            height: 80%;
+            
+        }
+        .photo{
+            margin-top: 15px;
+            width: 90%;
+            height: 300px;
+            /*
+            border: 1px solid white;
+            box-shadow: 1px 2px 2px 1px silver;
+            */
+            box-shadow:3px 3px 15px 15px #fff;
+            outline: none;
+            border-radius: 7px;
+            text-align: center;
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            background: url(image/download\ \(1\).jpeg);
+            background-repeat: no-repeat;
+            background-size: 100%100%;
+            background-attachment: fixed;
+        }
+        audio{
+            margin-top: 10px;
+            width: 90%;
+        }
+        .mar{
+            /*border: 1px solid white;
+            box-shadow: 0px 2px 2px 0px silver;*/
+            position: relative;
+            left: 50%;
+            transform: translate(-50%, 0%);
+            margin-bottom: 1px;
+            border-radius: 10px;
+            width: 90%;
+            margin-top: 20px;
+        }
+        marquee{
+            font-size: 20px;
+            color: #fff;
+            font-family: sans-serif;
+            text-shadow: 1px 1px 1px 1px silver;
+        }
+        p{
+            color: rgb(255, 255, 255);
+            opacity: 7.0;
+        }
+        button {
+            border: none;
+            background: none;
+            cursor: pointer;
+        }
+
+        button img {
+            width: 50px;  /* تحديد حجم الصورة */
+            height: 50px;
+        }
+        .play{
+            margin-top: 30px;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0%);
+            display: flex;
+        }
+        img{
+            width: 40px;
+        }
+  
+    </style>
+</head>
+<body>
+    <center>
+    <div class="audio">
+        <h1>عمير شميم</h1>
+        <p>صوره الفاتحه يصوت الشيخ عمير شميم</p>
+        <div class="photo">
+
+        </div>
+        <div class="mar">
+            <marquee behavior="" direction="rtl">تلاوه الشيخ عمير شميم تولاوه هادئة كسكون الليل</marquee>
+        </div>
+        <div class="play">
+            <a href="index2.html"><img src="icons/left.png" alt=""></a>
+        <button id="playButton">
+            <img id="buttonImage" src="icons/play.png" alt="تشغيل الموسيقى">
+        </button>
+        <a href="index4.html"><img src="icons/right.png" alt=""></a>
+    
+        <!-- عنصر الصوت (audio) -->
+        <audio id="audio" src="audo/001.mp3"loop=""autoplay=""></audio>
+        </div>
+    </div>
+
+    </center>
+    <script>
+  const playButton = document.getElementById('playButton');
+        const buttonImage = document.getElementById('buttonImage');
+        const audio = document.getElementById('audio');
+
+        // إضافة حدث عند الضغط على الزر
+        playButton.addEventListener('click', () => {
+            // تشغيل الموسيقى إذا كانت موقوفة
+            if (audio.paused) {
+                audio.play();
+                // تغيير الصورة إلى أيقونة الإيقاف
+                buttonImage.src = 'icons/puse.png';  // صورة الإيقاف
+            } else {
+                audio.pause();  // إيقاف الموسيقى
+                // تغيير الصورة إلى أيقونة التشغيل
+                buttonImage.src = 'icons/play.png';  // صورة التشغيل
+            }
+        });
+    </script>
+</body>
+</html>
